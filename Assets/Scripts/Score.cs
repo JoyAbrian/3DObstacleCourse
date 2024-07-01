@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
 {
     private int score = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag != "Hit") {
             score++;
-            Debug.Log("You Bumped to Obstacle " + score + " times");
+            scoreText.SetText("Collision : " + score);
         }
     }
 }
